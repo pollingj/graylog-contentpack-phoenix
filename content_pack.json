@@ -1,0 +1,196 @@
+{
+    "id": null,
+    "name": "Phoenix",
+    "description": "Content pack for Phoenix log messages sent using [Logster](https://github.com/navinpeiris/logster)",
+    "category": "Web Frameworks",
+    "inputs": [
+    {
+    "title": "Phoenix",
+    "configuration": {
+    "override_source": "",
+    "recv_buffer_size": 262144,
+    "bind_address": "0.0.0.0",
+    "port": 12219
+    },
+    "type": "org.graylog2.inputs.gelf.udp.GELFUDPInput",
+    "global": false,
+    "extractors": [
+    {
+    "title": "Phoenix: method",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "method=(.+?)(\\s|$)"
+    },
+    "converters": [
+    {
+    "type": "LOWERCASE",
+    "configuration": {}
+    }
+    ],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "method",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: path",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "path=(.+?)(\\s|$)"
+    },
+    "converters": [],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "path",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: format",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "format=(.+?)(\\s|$)"
+    },
+    "converters": [
+    {
+    "type": "LOWERCASE",
+    "configuration": {}
+    }
+    ],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "format",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: controller",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "controller=(.+?)(\\s|$)"
+    },
+    "converters": [],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "controller",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: action",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "action=(.+?)(\\s|$)"
+    },
+    "converters": [],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "action",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: params",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "params=(.+?)(\\s|$)"
+    },
+    "converters": [],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "params",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: status",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "status=(.+?)(\\s|$)"
+    },
+    "converters": [
+    {
+    "type": "NUMERIC",
+    "configuration": {}
+    }
+    ],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "status",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: duration",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "duration=(.+?)(\\s|$)"
+    },
+    "converters": [
+    {
+    "type": "NUMERIC",
+    "configuration": {}
+    }
+    ],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "duration",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: view duration",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "view=(.+?)(\\s|$)"
+    },
+    "converters": [
+    {
+    "type": "NUMERIC",
+    "configuration": {}
+    }
+    ],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "view_duration",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    },
+    {
+    "title": "Phoenix: db duration",
+    "type": "REGEX",
+    "configuration": {
+    "regex_value": "db=(.+?)(\\s|$)"
+    },
+    "converters": [
+    {
+    "type": "NUMERIC",
+    "configuration": {}
+    }
+    ],
+    "order": 0,
+    "cursor_strategy": "COPY",
+    "target_field": "db_duration",
+    "source_field": "long_message",
+    "condition_type": "NONE",
+    "condition_value": ""
+    }
+    ],
+    "static_fields": {}
+    }
+    ],
+    "streams": [],
+    "outputs": [],
+    "dashboards": [],
+    "grok_patterns": []
+    }
